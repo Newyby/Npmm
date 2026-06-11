@@ -1,6 +1,10 @@
-mport './style.css'
+import './style.css'
 import dayjs from 'dayjs'
 import MicroModal from 'micromodal'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+dayjs.extend(utc)
+dayjs.extend(timezone)
 
 document.querySelector('#app').innerHTML = `
   <h1>Timezone Clock</h1>
@@ -46,10 +50,18 @@ document.querySelector('#app').innerHTML = `
 
 const timeElement =
 	  document.querySelector('.current-time')
-
+const timezoneSelect =
+	  document.querySelector('.timezone-select')
+timezoneSelect.addEventListener('change', () => {
+	  selectedTimezone = timezoneSelect.value
+  updateTime()
+})
+let selectedTimezone = 'Africa/Lagos'
 function updateTime() {
 	  timeElement.textContent =
-		    dayjs().format('HH:mm:ss')
+		    dayjs()
+	.tz(selectedTimezone)
+ 	.format('HH:mm:ss')
 }
 
 updateTime()
