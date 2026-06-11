@@ -35,10 +35,10 @@ document.querySelector('#app').innerHTML = `
 									              <h2>Select Timezone</h2>
 
 										              <select class="timezone-select">
-											                <option>Africa/Lagos</option>
-													          <option>Europe/London</option>
-														            <option>America/New_York</option>
-															              <option>Asia/Tokyo</option>
+<option value="Africa/Lagos">Africa/Lagos</option>
+<option value="Europe/London">Europe/London</option>
+<option value="America/New_York">America/New_York</option>
+<option value="Asia/Tokyo">Asia/Tokyo</option>
 																              </select>
 
 																	            </div>
