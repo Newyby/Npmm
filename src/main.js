@@ -1,4 +1,5 @@
 import './style.css'
+import dayjs from 'dayjs'
 
 document.querySelector('#app').innerHTML = `
   <h1>Timezone Clock</h1>
@@ -11,3 +12,15 @@ document.querySelector('#app').innerHTML = `
     Select Timezone
   </button>
 `
+
+const timeElement =
+  document.querySelector('.current-time')
+
+function updateTime() {
+  timeElement.textContent =
+    dayjs().format('HH:mm:ss')
+}
+
+updateTime()
+
+setInterval(updateTime, 1000)
