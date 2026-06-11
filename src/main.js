@@ -1,26 +1,59 @@
-import './style.css'
+mport './style.css'
 import dayjs from 'dayjs'
+import MicroModal from 'micromodal'
 
 document.querySelector('#app').innerHTML = `
   <h1>Timezone Clock</h1>
 
-  <p class="current-time">
-    Loading...
-  </p>
+    <p class="current-time">
+        Loading...
+	  </p>
 
-  <button class="timezone-btn">
-    Select Timezone
-  </button>
-`
+	    <button
+	        class="timezone-btn"
+		    data-micromodal-trigger="timezone-modal">
+		        Select Timezone
+			  </button>
+
+			    <div
+			        class="modal micromodal-slide"
+				    id="timezone-modal"
+				        aria-hidden="true">
+
+					    <div
+					          tabindex="-1"
+						        data-micromodal-close>
+
+							      <div
+							              role="dialog"
+								              aria-modal="true">
+
+									              <h2>Select Timezone</h2>
+
+										              <select class="timezone-select">
+											                <option>Africa/Lagos</option>
+													          <option>Europe/London</option>
+														            <option>America/New_York</option>
+															              <option>Asia/Tokyo</option>
+																              </select>
+
+																	            </div>
+
+																		        </div>
+
+																			  </div>
+																			  `
 
 const timeElement =
-  document.querySelector('.current-time')
+	  document.querySelector('.current-time')
 
 function updateTime() {
-  timeElement.textContent =
-    dayjs().format('HH:mm:ss')
+	  timeElement.textContent =
+		    dayjs().format('HH:mm:ss')
 }
 
 updateTime()
 
 setInterval(updateTime, 1000)
+
+MicroModal.init()
