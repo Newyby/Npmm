@@ -1,5 +1,6 @@
 
 //Edited from acode
+console.log('Hello world')
 import './style.css'
 import dayjs from 'dayjs'
 import MicroModal from 'micromodal'
